@@ -75,10 +75,9 @@ public class TestJira {
             String productVersion = "";
             String rootCauseAnalysis = "";
 
-            int i=1;
+            for (int i=1;i<issues.getIssues().size();i++){
 
-            for (Issue issue : issues.getIssues()) {
-
+                Issue issue = issues.getIssues().get(i);
                 issueID = issue.getId();
                 issueType = issue.getFields().getIssueType().getName();
                 status =  issue.getFields().getStatus().getName();
@@ -96,27 +95,6 @@ public class TestJira {
                 injectionPoint= "";
                 productVersion = "";
                 rootCauseAnalysis = "";
-
-                /**
-                System.out.println("Issues: " + issue.getFields().getIssueType().getName() + " Status " + issue.getFields().getStatus().getName()
-                        + " Priority " + issue.
-                        getFields().
-                        getPriority().
-                        getName() +
-                        " Resolution " +
-                        issue.getFields().getResolution()
-                        + " Created " +
-                        issue.getFields().getCreated()
-
-                        + " Updated " +
-                        issue.getFields().getUpdated()
-
-                        + " Last viewed " +
-                        issue.getFields().getLastViewed()
-
-                        + " Customer " +
-                        issue.getFields().getCustomer_s().getValue());
-                 */
 
                 HSSFRow row = sheet.createRow((short)i);
                 row.createCell(0).setCellValue(issueID);
@@ -140,17 +118,13 @@ public class TestJira {
                 FileOutputStream fileOut = new FileOutputStream(filename);
                 workbook.write(fileOut);
                 fileOut.close();
-                //System.out.println("Your excel file has been generated!");
-                i++;
 
             }
 
-        } catch (Exception e) {
-
+        } catch(IOException e) {
             e.printStackTrace();
         }
-
-    }
+}
 
 }
 
