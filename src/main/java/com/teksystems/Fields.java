@@ -38,6 +38,20 @@ public class Fields {
     @JsonProperty("customfield_11010")
     private List<Customer_s> customer_s;
 
+    /*
+    Custom field (Product / Version)
+     */
+    @JsonProperty("customfield_15210")
+    private ProductVersion productVersion;
+
+    /*
+    Custom field (Product / Version)
+    */
+    @JsonProperty("customfield_14018")
+    private ReleaseStatus releaseStatus;
+
+
+
     public IssueType getIssueType() {
         return issueType;
     }
@@ -83,6 +97,15 @@ public class Fields {
         return customer_s.get(0);
     }
 
+    public ProductVersion getProductVersion() {
+        return productVersion;
+    }
+
+    public ReleaseStatus getReleaseStatus() {
+        return releaseStatus;
+    }
+
+    
     private String emptyIfNull(String value) {
         return value != null ? value : "";
     }
