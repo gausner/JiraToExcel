@@ -32,6 +32,10 @@ public class Fields {
     @JsonProperty("updated")
     private String updated;
 
+    @JsonProperty("resolved")
+    private String resolved;
+
+
     /*
     Custom field (Customer(s))
      */
@@ -72,6 +76,10 @@ public class Fields {
 
     public String getUpdated() {
         return updated;
+    }
+
+    public String getResolved() {
+        return resolved;
     }
 
     public Customer_s getCustomer_s() {
