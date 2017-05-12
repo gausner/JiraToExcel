@@ -45,11 +45,40 @@ public class Fields {
     private ProductVersion productVersion;
 
     /*
+    Custom field (Default Components)
+     */
+    @JsonProperty("customfield_15411")
+    private List<DefaultComponents> defaultComponents;
+
+    /*
     Custom field (Product / Version)
     */
     @JsonProperty("customfield_14018")
     private ReleaseStatus releaseStatus;
 
+    /*
+    Custom field (Injection Point)
+    */
+    @JsonProperty("customfield_10056")
+    private InjectionPoint injectionPoint;
+
+    /*
+    Custom field (Detection Point)
+    */
+    @JsonProperty("customfield_10057")
+    private DetectionPoint detectionPoint;
+
+    /*
+    Custom field (Defect Type)
+    */
+    @JsonProperty("customfield_19611")
+    private DefectType defectType;
+
+    /*
+    Custom field (Root Cause Analysis)
+    */
+    @JsonProperty("customfield_11712")
+    private RootCauseAnalysis rootCauseAnalysis;
 
 
     public IssueType getIssueType() {
@@ -98,14 +127,56 @@ public class Fields {
     }
 
     public ProductVersion getProductVersion() {
+        if (productVersion == null) {
+            productVersion.setValue("");
+        }
         return productVersion;
     }
 
+    public DefaultComponents getDefaultComponents() {
+        if(defaultComponents == null){
+            defaultComponents = new ArrayList<DefaultComponents>();
+            defaultComponents.add(new DefaultComponents()) ;
+            defaultComponents.get(0).setValue("");
+        }
+        return defaultComponents.get(0);
+    }
+
     public ReleaseStatus getReleaseStatus() {
+        if (releaseStatus == null) {
+            releaseStatus.setValue("");
+        }
         return releaseStatus;
     }
 
-    
+    public InjectionPoint getInjectionPoint() {
+        if (injectionPoint == null) {
+            injectionPoint.setValue("");
+        }
+        return injectionPoint;
+    }
+
+    public DetectionPoint getDetectionPoint() {
+        if (detectionPoint == null) {
+            detectionPoint.setValue("");
+        }
+        return detectionPoint;
+    }
+
+    public DefectType getDefectType() {
+        if (defectType == null) {
+            defectType.setValue("");
+        }
+        return defectType;
+    }
+
+    public RootCauseAnalysis getRootCauseAnalysis() {
+        if (rootCauseAnalysis == null) {
+            rootCauseAnalysis.setValue("");
+        }
+        return rootCauseAnalysis;
+    }
+
     private String emptyIfNull(String value) {
         return value != null ? value : "";
     }
