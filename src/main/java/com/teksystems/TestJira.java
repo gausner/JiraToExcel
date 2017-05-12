@@ -47,13 +47,14 @@ public class TestJira {
             rowhead.createCell(7).setCellValue("Resolved");
             rowhead.createCell(8).setCellValue("Component/s");
             rowhead.createCell(9).setCellValue("Custom field (Customer(s))");
-            rowhead.createCell(10).setCellValue("Custom field (Default Components)");
+            rowhead.createCell(10).setCellValue("Custom field (Default Component)");
             rowhead.createCell(11).setCellValue("Custom field (Defect Type)");
             rowhead.createCell(12).setCellValue("Custom field (Detection Point)");
             rowhead.createCell(13).setCellValue("Custom field (Product / Version)");
             rowhead.createCell(14).setCellValue("Custom field (Release Status)");
             rowhead.createCell(15).setCellValue("Custom field (Injection Point)");
-            rowhead.createCell(16).setCellValue("Custom field (Root Cause Analysis)");
+            rowhead.createCell(16).setCellValue("Custom field (Release Status)");
+            rowhead.createCell(17).setCellValue("Custom field (Root Cause Analysis)");
 
             //declare all the fields
 
@@ -73,6 +74,7 @@ public class TestJira {
             String defectionPoint = "";
             String injectionPoint= "";
             String productVersion = "";
+            String releaseStatus = "";
             String rootCauseAnalysis = "";
 
             for (int i=1;i<issues.getIssues().size();i++){
@@ -87,14 +89,15 @@ public class TestJira {
                 updated = issue.getFields().getUpdated();
                 lastViewed = issue.getFields().getLastViewed();
                 resolved =issue.getFields().getResolved();
-                components= "";
-                customers = "";
-                defaultComponents = "";
-                defectType = "";
-                defectionPoint = "";
-                injectionPoint= "";
-                productVersion = "";
-                rootCauseAnalysis = "";
+//                components= issue.getFields().getComponent().getValue();
+                customers = issue.getFields().getCustomer_s().getValue();
+                defaultComponents = issue.getFields().getDefaultComponents().getValue();
+//                defectType = issue.getFields().getDefectType().getValue();
+//                defectionPoint = issue.getFields().getDetectionPoint().getValue();
+//                releaseStatus = issue.getFields().getReleaseStatus().getValue();
+//                injectionPoint= issue.getFields().getInjectionPoint().getValue();
+//                productVersion = issue.getFields().getProductVersion().getValue();
+//                rootCauseAnalysis = issue.getFields().getRootCauseAnalysis().getValue();
 
                 HSSFRow row = sheet.createRow((short)i);
                 row.createCell(0).setCellValue(issueID);
@@ -113,7 +116,8 @@ public class TestJira {
                 row.createCell(13).setCellValue(defectionPoint);
                 row.createCell(14).setCellValue(injectionPoint);
                 row.createCell(15).setCellValue(productVersion);
-                row.createCell(16).setCellValue(rootCauseAnalysis);
+                row.createCell(16).setCellValue(releaseStatus);
+                row.createCell(17).setCellValue(rootCauseAnalysis);
 
                 FileOutputStream fileOut = new FileOutputStream(filename);
                 workbook.write(fileOut);

@@ -35,7 +35,8 @@ public class Fields {
     @JsonProperty("resolved")
     private String resolved;
 
-
+    @JsonProperty("components")
+    private List<Component> components;
     /*
     Custom field (Customer(s))
      */
@@ -49,7 +50,7 @@ public class Fields {
     private ProductVersion productVersion;
 
     /*
-    Custom field (Default Components)
+    Custom field (Default Component)
      */
     @JsonProperty("customfield_15411")
     private List<DefaultComponents> defaultComponents;
@@ -123,6 +124,15 @@ public class Fields {
 
     public String getResolved() {
         return resolved;
+    }
+
+    public Component getComponent() {
+        if(components == null){
+            components = new ArrayList<Component>();
+            components.add(new Component()) ;
+            components.get(0).setValue("");
+        }
+        return components.get(0);
     }
 
     public Customer_s getCustomer_s() {
