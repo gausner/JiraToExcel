@@ -3,6 +3,7 @@ package com.teksystems;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,7 +21,7 @@ public class Fields {
     private Priority priority;
 
     @JsonProperty("resolution")
-    private String resolution;
+    private Resolution resolution;
 
     @JsonProperty("lastViewed")
     private String lastViewed;
@@ -53,8 +54,12 @@ public class Fields {
         return priority;
     }
 
-    public String getResolution() {
-        return emptyIfNull(resolution);
+    public Resolution getResolution() {
+        if (resolution == null) {
+            resolution = new Resolution();
+            resolution.setName("");
+        }
+        return resolution;
     }
 
     public String getLastViewed() {
@@ -70,6 +75,11 @@ public class Fields {
     }
 
     public Customer_s getCustomer_s() {
+        if(customer_s == null){
+            customer_s = new ArrayList<Customer_s>();
+            customer_s.add(new Customer_s()) ;
+            customer_s.get(0).setValue("");
+        }
         return customer_s.get(0);
     }
 
