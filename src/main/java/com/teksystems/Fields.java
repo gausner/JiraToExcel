@@ -127,7 +127,7 @@ public class Fields {
     }
 
     public Component getComponent() {
-        if(components == null){
+        if(components == null || components.size() == 0){
             components = new ArrayList<Component>();
             components.add(new Component()) ;
             components.get(0).setValue("");
@@ -146,6 +146,7 @@ public class Fields {
 
     public ProductVersion getProductVersion() {
         if (productVersion == null) {
+            productVersion = new ProductVersion();
             productVersion.setValue("");
         }
         return productVersion;
@@ -162,6 +163,7 @@ public class Fields {
 
     public ReleaseStatus getReleaseStatus() {
         if (releaseStatus == null) {
+            releaseStatus = new ReleaseStatus();
             releaseStatus.setValue("");
         }
         return releaseStatus;
@@ -169,6 +171,7 @@ public class Fields {
 
     public InjectionPoint getInjectionPoint() {
         if (injectionPoint == null) {
+            injectionPoint = new InjectionPoint();
             injectionPoint.setValue("");
         }
         return injectionPoint;
@@ -176,6 +179,7 @@ public class Fields {
 
     public DetectionPoint getDetectionPoint() {
         if (detectionPoint == null) {
+            detectionPoint = new DetectionPoint();
             detectionPoint.setValue("");
         }
         return detectionPoint;
@@ -183,6 +187,7 @@ public class Fields {
 
     public DefectType getDefectType() {
         if (defectType == null) {
+            defectType = new DefectType();
             defectType.setValue("");
         }
         return defectType;
@@ -190,6 +195,7 @@ public class Fields {
 
     public RootCauseAnalysis getRootCauseAnalysis() {
         if (rootCauseAnalysis == null) {
+            rootCauseAnalysis = new RootCauseAnalysis();
             rootCauseAnalysis.setValue("");
         }
         return rootCauseAnalysis;
