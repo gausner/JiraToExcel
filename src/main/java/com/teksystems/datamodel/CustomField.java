@@ -1,9 +1,9 @@
-package com.teksystems;
+package com.teksystems.datamodel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Created by yshamne on 2017-05-11.
+ * Model for custom field
  */
 public class CustomField {
     @JsonProperty("id")

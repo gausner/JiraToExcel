@@ -1,11 +1,11 @@
-package com.teksystems;
+package com.teksystems.datamodel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Created by yshamne on 2017-05-11.
+ * Model for standard field
  */
-public class Field {
+public class StandardField {
     @JsonProperty("id")
     private String id;
 

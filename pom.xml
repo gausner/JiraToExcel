@@ -51,7 +51,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.teksystems.TestJira</mainClass>
+                            <mainClass>com.teksystems.MainClass</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

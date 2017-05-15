@@ -1,10 +1,10 @@
-package com.teksystems;
+package com.teksystems.datamodel;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Created by yshamne on 2017-05-11.
+ * Model for properties inside the 'issues' object
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Issue {

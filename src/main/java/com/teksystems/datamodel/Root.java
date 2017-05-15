@@ -1,16 +1,16 @@
-package com.teksystems;
+package com.teksystems.datamodel;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-
+/**
+ * Root json object
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Issues {
-    /*
-    issues is an array of js objects
-     */
+public class Root {
+
     @JsonProperty("issues")
     private List<Issue> issues;
 

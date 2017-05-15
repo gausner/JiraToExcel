@@ -1,6 +1,5 @@
 package com.teksystems;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
@@ -8,14 +7,17 @@ import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
 
 import  java.io.*;
+
+import com.teksystems.datamodel.Issue;
+import com.teksystems.datamodel.Root;
 import  org.apache.poi.hssf.usermodel.HSSFSheet;
 import  org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import  org.apache.poi.hssf.usermodel.HSSFRow;
-import  org.apache.poi.hssf.usermodel.HSSFCell;
+
 /**
  * Created by yshamne on 2017-05-11.
  */
-public class TestJira {
+public class MainClass {
     public static void main(String[] args) {
         try {
 
@@ -29,7 +31,7 @@ public class TestJira {
 
             final ObjectMapper m = new ObjectMapper();
 
-            Issues issues = m.readValue(output, Issues.class);
+            Root issues = m.readValue(output, Root.class);
 
             String filename = "TEKGraphData.xls" ;
             HSSFWorkbook workbook = new HSSFWorkbook();
@@ -98,7 +100,7 @@ public class TestJira {
                 rootCauseAnalysis = "";
 
                 /**
-                System.out.println("Issues: " + issue.getFields().getIssueType().getName() + " Status " + issue.getFields().getStatus().getName()
+                System.out.println("Root: " + issue.getFields().getIssueType().getName() + " Status " + issue.getFields().getStatus().getName()
                         + " Priority " + issue.
                         getFields().
                         getPriority().

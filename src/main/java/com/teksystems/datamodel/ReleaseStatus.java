@@ -1,9 +1,10 @@
-package com.teksystems;
+package com.teksystems.datamodel;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.teksystems.datamodel.CustomField;
 
 /**
- * Created by yshamne on 2017-05-11.
+ * Model for 'release status' object inside 'fields'
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ReleaseStatus extends CustomField {
