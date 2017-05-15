@@ -11,13 +11,13 @@ import java.io.IOException;
 public class JsonToJavaJacksonImpl implements JsonToJava {
     public Root convert(String json) {
         final ObjectMapper m = new ObjectMapper();
-        Root issues = null;
+        Root rootObject;
 
         try {
-            issues = m.readValue(json, Root.class);
+            rootObject = m.readValue(json, Root.class);
         } catch (IOException e) {
             throw new RuntimeException("Failed to deserialize json: " + json);
         }
-        return issues;
+        return rootObject;
     }
 }
