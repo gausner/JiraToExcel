@@ -65,12 +65,12 @@ public class ExcelHelperImpl implements ExcelHelper {
             String components = issue.getFields().getComponent().getValue();
             String customers = issue.getFields().getCustomer_s().getValue();
             String defaultComponents = issue.getFields().getDefaultComponents().getValue();
-            String defectType = issue.getFields().getDefectType().getValue();
+            String defectType = issue.getFields().getDefectType();
             String defectionPoint = issue.getFields().getDetectionPoint().getValue();
             String releaseStatus = issue.getFields().getReleaseStatus().getValue();
             String injectionPoint = issue.getFields().getInjectionPoint().getValue();
             String productVersion = issue.getFields().getProductVersion().getValue();
-            String rootCauseAnalysis = issue.getFields().getRootCauseAnalysis().getValue();
+            String rootCauseAnalysis = issue.getFields().getRootCauseAnalysis();
 
             HSSFRow row = sheet.createRow((short) i);
             row.createCell(0).setCellValue(issueID);

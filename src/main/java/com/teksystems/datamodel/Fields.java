@@ -37,53 +37,105 @@ public class Fields {
 
     @JsonProperty("components")
     private List<Component> components;
+//    /*
+//    Custom field (Customer(s))
+//     */
+//
+//
+//
+//    @JsonProperty("customfield_11010")
+//    private List<Customer_s> customer_s;
+//
+//    /*
+//    Custom field (Product / Version)
+//     */
+//    @JsonProperty("customfield_15210")
+//    private ProductVersion productVersion;
+//
+//    /*
+//    Custom field (Default Component)
+//     */
+//    @JsonProperty("customfield_15411")
+//    private List<DefaultComponents> defaultComponents;
+//
+//    /*
+//    Custom field (Product / Version)
+//    */
+//    @JsonProperty("customfield_14018")
+//    private ReleaseStatus releaseStatus;
+//
+//    /*
+//    Custom field (Injection Point)
+//    */
+//    @JsonProperty("customfield_10056")
+//    private InjectionPoint injectionPoint;
+//
+//    /*
+//    Custom field (Detection Point)
+//    */
+//    @JsonProperty("customfield_10057")
+//    private DetectionPoint detectionPoint;
+//
+//    /*
+//    Custom field (Defect Type)
+//    */
+//    @JsonProperty("customfield_19611")
+//    private DefectType defectType;
+//
+//    /*
+//    Custom field (Root Cause Analysis)
+//    */
+//    @JsonProperty("customfield_11712")
+//    private RootCauseAnalysis rootCauseAnalysis;
+
     /*
-    Custom field (Customer(s))
-     */
-    @JsonProperty("customfield_11010")
+Custom field (Customer(s))
+ */
+    @JsonProperty("customfield_10121")
     private List<Customer_s> customer_s;
 
     /*
     Custom field (Product / Version)
      */
-    @JsonProperty("customfield_15210")
+    @JsonProperty("customfield_10126")
     private ProductVersion productVersion;
 
     /*
     Custom field (Default Component)
      */
-    @JsonProperty("customfield_15411")
+    @JsonProperty("customfield_10122")
     private List<DefaultComponents> defaultComponents;
 
     /*
     Custom field (Product / Version)
     */
-    @JsonProperty("customfield_14018")
+    @JsonProperty("customfield_10127")
     private ReleaseStatus releaseStatus;
 
     /*
     Custom field (Injection Point)
     */
-    @JsonProperty("customfield_10056")
+    @JsonProperty("customfield_10125")
     private InjectionPoint injectionPoint;
 
     /*
     Custom field (Detection Point)
     */
-    @JsonProperty("customfield_10057")
+    @JsonProperty("customfield_10124")
     private DetectionPoint detectionPoint;
 
     /*
     Custom field (Defect Type)
     */
-    @JsonProperty("customfield_19611")
-    private DefectType defectType;
+    @JsonProperty("customfield_10123")
+    private String defectType;
 
     /*
     Custom field (Root Cause Analysis)
     */
-    @JsonProperty("customfield_11712")
-    private RootCauseAnalysis rootCauseAnalysis;
+    @JsonProperty("customfield_10201")
+    private String rootCauseAnalysis;
+
 
 
     public IssueType getIssueType() {
@@ -185,19 +237,19 @@ public class Fields {
         return detectionPoint;
     }
 
-    public DefectType getDefectType() {
-        if (defectType == null) {
-            defectType = new DefectType();
-            defectType.setValue("");
-        }
+    public String getDefectType() {
+//        if (defectType == null) {
+//            defectType = new DefectType();
+//            defectType.setValue("");
+//        }
         return defectType;
     }
 
-    public RootCauseAnalysis getRootCauseAnalysis() {
-        if (rootCauseAnalysis == null) {
-            rootCauseAnalysis = new RootCauseAnalysis();
-            rootCauseAnalysis.setValue("");
-        }
+    public String getRootCauseAnalysis() {
+//        if (rootCauseAnalysis == null) {
+//            rootCauseAnalysis = new RootCauseAnalysis();
+//            rootCauseAnalysis.setValue("");
+//        }
         return rootCauseAnalysis;
     }
 
