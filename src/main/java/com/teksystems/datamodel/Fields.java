@@ -35,6 +35,8 @@ public class Fields {
     @JsonProperty("resolved")
     private String resolved;
 
+    @JsonProperty("components")
+    private List<Component> components;
     /*
     Custom field (Customer(s))
      */
@@ -48,11 +50,40 @@ public class Fields {
     private ProductVersion productVersion;
 
     /*
+    Custom field (Default Component)
+     */
+    @JsonProperty("customfield_15411")
+    private List<DefaultComponents> defaultComponents;
+
+    /*
     Custom field (Product / Version)
     */
     @JsonProperty("customfield_14018")
     private ReleaseStatus releaseStatus;
 
+    /*
+    Custom field (Injection Point)
+    */
+    @JsonProperty("customfield_10056")
+    private InjectionPoint injectionPoint;
+
+    /*
+    Custom field (Detection Point)
+    */
+    @JsonProperty("customfield_10057")
+    private DetectionPoint detectionPoint;
+
+    /*
+    Custom field (Defect Type)
+    */
+    @JsonProperty("customfield_19611")
+    private DefectType defectType;
+
+    /*
+    Custom field (Root Cause Analysis)
+    */
+    @JsonProperty("customfield_11712")
+    private RootCauseAnalysis rootCauseAnalysis;
 
 
     public IssueType getIssueType() {
@@ -95,6 +126,15 @@ public class Fields {
         return resolved;
     }
 
+    public Component getComponent() {
+        if(components == null || components.size() == 0){
+            components = new ArrayList<Component>();
+            components.add(new Component()) ;
+            components.get(0).setValue("");
+        }
+        return components.get(0);
+    }
+
     public Customer_s getCustomer_s() {
         if(customer_s == null){
             customer_s = new ArrayList<Customer_s>();
@@ -105,14 +145,62 @@ public class Fields {
     }
 
     public ProductVersion getProductVersion() {
+        if (productVersion == null) {
+            productVersion = new ProductVersion();
+            productVersion.setValue("");
+        }
         return productVersion;
     }
 
+    public DefaultComponents getDefaultComponents() {
+        if(defaultComponents == null){
+            defaultComponents = new ArrayList<DefaultComponents>();
+            defaultComponents.add(new DefaultComponents()) ;
+            defaultComponents.get(0).setValue("");
+        }
+        return defaultComponents.get(0);
+    }
+
     public ReleaseStatus getReleaseStatus() {
+        if (releaseStatus == null) {
+            releaseStatus = new ReleaseStatus();
+            releaseStatus.setValue("");
+        }
         return releaseStatus;
     }
 
-    
+    public InjectionPoint getInjectionPoint() {
+        if (injectionPoint == null) {
+            injectionPoint = new InjectionPoint();
+            injectionPoint.setValue("");
+        }
+        return injectionPoint;
+    }
+
+    public DetectionPoint getDetectionPoint() {
+        if (detectionPoint == null) {
+            detectionPoint = new DetectionPoint();
+            detectionPoint.setValue("");
+        }
+        return detectionPoint;
+    }
+
+    public DefectType getDefectType() {
+        if (defectType == null) {
+            defectType = new DefectType();
+            defectType.setValue("");
+        }
+        return defectType;
+    }
+
+    public RootCauseAnalysis getRootCauseAnalysis() {
+        if (rootCauseAnalysis == null) {
+            rootCauseAnalysis = new RootCauseAnalysis();
+            rootCauseAnalysis.setValue("");
+        }
+        return rootCauseAnalysis;
+    }
+
     private String emptyIfNull(String value) {
         return value != null ? value : "";
     }
