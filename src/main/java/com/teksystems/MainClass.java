@@ -18,7 +18,7 @@ public class MainClass {
         ExcelHelper excelHelper = new ExcelHelperImpl();
         JsonToJava jsonToJava = new JsonToJavaJacksonImpl();
 
-        String jsonFromJira = restClient.queryJira();
+        String jsonFromJira = restClient.queryJira().replace("\\\"","\"");
 
         Root rootObject = jsonToJava.convert(jsonFromJira);
 
