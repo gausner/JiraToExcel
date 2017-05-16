@@ -37,62 +37,11 @@ public class Fields {
 
     @JsonProperty("components")
     private List<Component> components;
-//    /*
-//    Custom field (Customer(s))
-//     */
-//
-//
-//
-//    @JsonProperty("customfield_11010")
-//    private List<Customer_s> customer_s;
-//
-//    /*
-//    Custom field (Product / Version)
-//     */
-//    @JsonProperty("customfield_15210")
-//    private ProductVersion productVersion;
-//
-//    /*
-//    Custom field (Default Component)
-//     */
-//    @JsonProperty("customfield_15411")
-//    private List<DefaultComponents> defaultComponents;
-//
-//    /*
-//    Custom field (Product / Version)
-//    */
-//    @JsonProperty("customfield_14018")
-//    private ReleaseStatus releaseStatus;
-//
-//    /*
-//    Custom field (Injection Point)
-//    */
-//    @JsonProperty("customfield_10056")
-//    private InjectionPoint injectionPoint;
-//
-//    /*
-//    Custom field (Detection Point)
-//    */
-//    @JsonProperty("customfield_10057")
-//    private DetectionPoint detectionPoint;
-//
-//    /*
-//    Custom field (Defect Type)
-//    */
-//    @JsonProperty("customfield_19611")
-//    private DefectType defectType;
-//
-//    /*
-//    Custom field (Root Cause Analysis)
-//    */
-//    @JsonProperty("customfield_11712")
-//    private RootCauseAnalysis rootCauseAnalysis;
 
     /*
-Custom field (Customer(s))
- */
+    Custom field (Customer(s))
+    */
     @JsonProperty("customfield_10303")
-//    private List<Customer_s> customer_s;
     private Customer_s customer_s;
 
     /*
@@ -105,7 +54,6 @@ Custom field (Customer(s))
     Custom field (Default Component)
      */
     @JsonProperty("customfield_10304")
-//    private List<DefaultComponents> defaultComponents;
     private DefaultComponents defaultComponents;
 
     /*
@@ -129,7 +77,7 @@ Custom field (Customer(s))
     /*
     Custom field (Defect Type)
     */
-    @JsonProperty("customfield_10302")
+    @JsonProperty("customfield_10400")
     private String defectType;
 
     /*
@@ -190,12 +138,6 @@ Custom field (Customer(s))
     }
 
     public Customer_s getCustomer_s() {
-//        if(customer_s == null){
-//            customer_s = new ArrayList<Customer_s>();
-//            customer_s.add(new Customer_s()) ;
-//            customer_s.get(0).setValue("");
-//        }
-//        return customer_s.get(0);
         if (customer_s == null) {
             customer_s = new Customer_s();
             customer_s.setValue("");
@@ -212,12 +154,6 @@ Custom field (Customer(s))
     }
 
     public DefaultComponents getDefaultComponents() {
-//        if(defaultComponents == null){
-//            defaultComponents = new ArrayList<DefaultComponents>();
-//            defaultComponents.add(new DefaultComponents()) ;
-//            defaultComponents.get(0).setValue("");
-//        }
-//        return defaultComponents.get(0);
         if (defaultComponents == null) {
             defaultComponents = new DefaultComponents();
             defaultComponents.setValue("");
@@ -250,18 +186,10 @@ Custom field (Customer(s))
     }
 
     public String getDefectType() {
-//        if (defectType == null) {
-//            defectType = new DefectType();
-//            defectType.setValue("");
-//        }
         return defectType;
     }
 
     public String getRootCauseAnalysis() {
-//        if (rootCauseAnalysis == null) {
-//            rootCauseAnalysis = new RootCauseAnalysis();
-//            rootCauseAnalysis.setValue("");
-//        }
         return rootCauseAnalysis;
     }
 
