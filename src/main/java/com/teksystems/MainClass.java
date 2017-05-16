@@ -14,6 +14,8 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
  */
 public class MainClass {
     public static void main(String[] args) {
+        System.out.println("Please wait while the information is loaded...");
+
         RestClient restClient = new JerseyRestClient();
         ExcelHelper excelHelper = new ExcelHelperImpl();
         JsonToJava jsonToJava = new JsonToJavaJacksonImpl();
@@ -24,6 +26,8 @@ public class MainClass {
 
         HSSFWorkbook workbook = excelHelper.createExcelWorkBook(rootObject);
 
-        excelHelper.saveToExcelFile("TEKGraphData.xls", workbook);
+        excelHelper.saveToExcelFile("GraphData.xls", workbook);
+
+        System.out.println("The information is successfully loaded");
     }
 }
