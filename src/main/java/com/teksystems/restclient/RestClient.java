@@ -5,4 +5,8 @@ package com.teksystems.restclient;
  */
 public interface RestClient {
     String queryJira();
+
+    int countRecords();
+
+    String queryJira(String startAt);
 }

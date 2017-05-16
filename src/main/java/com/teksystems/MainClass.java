@@ -9,6 +9,9 @@ import com.teksystems.restclient.JerseyRestClient;
 import com.teksystems.restclient.RestClient;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Main class of the application
  */
@@ -19,15 +22,34 @@ public class MainClass {
         RestClient restClient = new JerseyRestClient();
         ExcelHelper excelHelper = new ExcelHelperImpl();
         JsonToJava jsonToJava = new JsonToJavaJacksonImpl();
+        List<Root> rootObjects = new ArrayList<Root>();
 
-        String jsonFromJira = restClient.queryJira().replace("\\\"","\"");
+        int count = restClient.countRecords();
+        int limit = 1000;
 
-        Root rootObject = jsonToJava.convert(jsonFromJira);
+        int recordsArrayCount = calculateRecordsArraySize(count, limit);
 
-        HSSFWorkbook workbook = excelHelper.createExcelWorkBook(rootObject);
+        for (int i = 0; i < recordsArrayCount; i++) {
+            String startAt = String.valueOf((i + 1) * limit - limit);
+            String jsonFromJira = restClient.queryJira(startAt).replace("\\\"", "\"");
+            rootObjects.add(jsonToJava.convert(jsonFromJira));
+        }
+
+        HSSFWorkbook workbook = excelHelper.createExcelWorkBook(rootObjects);
 
         excelHelper.saveToExcelFile("GraphData.xls", workbook);
 
         System.out.println("The information is successfully loaded");
+    }
+
+    private static int calculateRecordsArraySize(int count, int limit) {
+        int size;
+
+        if ((count % limit) == 0) {
+            size = count / limit;
+        } else {
+            size = count / limit + 1;
+        }
+        return size;
     }
 }
