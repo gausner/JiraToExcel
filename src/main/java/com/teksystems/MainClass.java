@@ -19,6 +19,7 @@ public class MainClass {
         JsonToJava jsonToJava = new JsonToJavaJacksonImpl();
 
         String jsonFromJira = restClient.queryJira().replace("\\\"","\"");
+//        String jsonFromJira = restClient.queryJira();
 
         Root rootObject = jsonToJava.convert(jsonFromJira);
 

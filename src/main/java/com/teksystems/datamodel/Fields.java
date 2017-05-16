@@ -91,43 +91,45 @@ public class Fields {
     /*
 Custom field (Customer(s))
  */
-    @JsonProperty("customfield_10121")
-    private List<Customer_s> customer_s;
+    @JsonProperty("customfield_10303")
+//    private List<Customer_s> customer_s;
+    private Customer_s customer_s;
 
     /*
     Custom field (Product / Version)
      */
-    @JsonProperty("customfield_10126")
+    @JsonProperty("customfield_10307")
     private ProductVersion productVersion;
 
     /*
     Custom field (Default Component)
      */
-    @JsonProperty("customfield_10122")
-    private List<DefaultComponents> defaultComponents;
+    @JsonProperty("customfield_10304")
+//    private List<DefaultComponents> defaultComponents;
+    private DefaultComponents defaultComponents;
 
     /*
     Custom field (Product / Version)
     */
-    @JsonProperty("customfield_10127")
+    @JsonProperty("customfield_10308")
     private ReleaseStatus releaseStatus;
 
     /*
     Custom field (Injection Point)
     */
-    @JsonProperty("customfield_10125")
+    @JsonProperty("customfield_10306")
     private InjectionPoint injectionPoint;
 
     /*
     Custom field (Detection Point)
     */
-    @JsonProperty("customfield_10124")
+    @JsonProperty("customfield_10305")
     private DetectionPoint detectionPoint;
 
     /*
     Custom field (Defect Type)
     */
-    @JsonProperty("customfield_10123")
+    @JsonProperty("customfield_10302")
     private String defectType;
 
     /*
@@ -188,12 +190,17 @@ Custom field (Customer(s))
     }
 
     public Customer_s getCustomer_s() {
-        if(customer_s == null){
-            customer_s = new ArrayList<Customer_s>();
-            customer_s.add(new Customer_s()) ;
-            customer_s.get(0).setValue("");
+//        if(customer_s == null){
+//            customer_s = new ArrayList<Customer_s>();
+//            customer_s.add(new Customer_s()) ;
+//            customer_s.get(0).setValue("");
+//        }
+//        return customer_s.get(0);
+        if (customer_s == null) {
+            customer_s = new Customer_s();
+            customer_s.setValue("");
         }
-        return customer_s.get(0);
+        return customer_s;
     }
 
     public ProductVersion getProductVersion() {
@@ -205,12 +212,17 @@ Custom field (Customer(s))
     }
 
     public DefaultComponents getDefaultComponents() {
-        if(defaultComponents == null){
-            defaultComponents = new ArrayList<DefaultComponents>();
-            defaultComponents.add(new DefaultComponents()) ;
-            defaultComponents.get(0).setValue("");
+//        if(defaultComponents == null){
+//            defaultComponents = new ArrayList<DefaultComponents>();
+//            defaultComponents.add(new DefaultComponents()) ;
+//            defaultComponents.get(0).setValue("");
+//        }
+//        return defaultComponents.get(0);
+        if (defaultComponents == null) {
+            defaultComponents = new DefaultComponents();
+            defaultComponents.setValue("");
         }
-        return defaultComponents.get(0);
+        return defaultComponents;
     }
 
     public ReleaseStatus getReleaseStatus() {
